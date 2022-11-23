@@ -1,5 +1,6 @@
 import React from 'react'
 import SelectField from '../components/SelectField'
+import TextFieldComp from '../components/TextFieldComp'
 import { Button } from '@mui/material';
 import { Box } from '@mui/system';
 
@@ -7,7 +8,7 @@ import { Box } from '@mui/system';
 const Settings = () => {
 
   const handleSubmit = (e) =>{
-    e.preventDefault()
+    e.preventDefault();
   }
   return (
     
@@ -19,6 +20,7 @@ const Settings = () => {
         <SelectField label="Category" />
         <SelectField label="Difficulty" />
         <SelectField label="Type" />
+        <TextFieldComp />
         <Box mt={3} width='100%'>
           <Button fullWidth variant="contained" type="submit">
             Get Started
