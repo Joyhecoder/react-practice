@@ -3,9 +3,12 @@ import SelectField from '../components/SelectField'
 import TextFieldComp from '../components/TextFieldComp'
 import { Button } from '@mui/material';
 import { Box } from '@mui/system';
+import useAxios from '../hooks/useAxios';
 
 
 const Settings = () => {
+  const { response, error, loading} = useAxios({url: "/api.php?amount=10"})
+  console.log(response)
 
   const handleSubmit = (e) =>{
     e.preventDefault();
