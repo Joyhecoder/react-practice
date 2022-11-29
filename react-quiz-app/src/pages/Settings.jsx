@@ -7,8 +7,9 @@ import useAxios from '../hooks/useAxios';
 
 
 const Settings = () => {
-  const { response, error, loading} = useAxios({url: "/api.php?amount=10"})
-  // console.log(response.trivia_categories)
+  const { response, error, loading} = useAxios({url: "/api_category.php"})
+  console.log(response)
+
 
   if(loading){
     return (
@@ -44,7 +45,7 @@ const Settings = () => {
     
     <div>
       <h2>Quiz App</h2>
-      settings
+      
 
       <form onSubmit={handleSubmit}>
         <SelectField options={response.trivia_categories} label="Category" />
