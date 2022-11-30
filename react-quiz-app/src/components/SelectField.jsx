@@ -13,21 +13,9 @@ const SelectField = (props) => {
     // const dispatch = useDispatch();
     const [value, setValue] = useState('')
     console.log("selectField", options)
+
     const handleChange = (e) =>{
-        // setValue(e.target.value)
-        // switch (label) {
-        //     case "Category":
-        //       dispatch(handleCategoryChange(e.target.value));
-        //       break;
-        //     case "Difficulty":
-        //       dispatch(handleDifficultyChange(e.target.value));
-        //       break;
-        //     case "Type":
-        //       dispatch(handleTypeChange(e.target.value));
-        //       break;
-        //     default:
-        //       return;
-        //   }
+     setValue(e.target.value)
     }
   return (
     <Box mt={3} width="100%">
