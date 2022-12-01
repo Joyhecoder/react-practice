@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FormControl, InputLabel, MenuItem, Select} from '@mui/material';
 import { Box } from '@mui/system';
 import {
@@ -10,12 +10,25 @@ import {
 
 const SelectField = (props) => {
     const { label, options } = props
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [value, setValue] = useState('')
     console.log("selectField", options)
 
     const handleChange = (e) =>{
      setValue(e.target.value)
+     switch(label){
+      case "Category":
+        dispatch(handleCategoryChange(e.target.value));
+        break;
+      case "Difficulty":
+        dispatch(handleDifficultyChange(e.target.value));
+        break;
+      case "Type":
+        dispatch(handleTypeChange(e.target.value));
+        break;
+      default:
+        return
+     }
     }
   return (
     <Box mt={3} width="100%">
