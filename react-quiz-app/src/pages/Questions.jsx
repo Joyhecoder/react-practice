@@ -5,6 +5,7 @@ import useAxios from '../hooks/useAxios';
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { handleScoreChange } from '../redux/actions';
+import {decode} from 'html-entities';
 
 
 
@@ -95,7 +96,7 @@ const handleClickAnswer = (e) =>{
   return (
     <Box>
       <Typography variant="h4">Question {questionIndex + 1} </Typography>
-      <Typography mt={5}>{response.results[questionIndex].question}</Typography>
+      <Typography mt={5}>{decode(response.results[questionIndex].question)}</Typography>
       
       {options.map((data, id)=>{
         return(
