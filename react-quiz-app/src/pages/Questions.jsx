@@ -101,7 +101,7 @@ const handleClickAnswer = (e) =>{
       {options.map((data, id)=>{
         return(
           <Box mt={2} key={id}>
-            <Button onClick={handleClickAnswer} variant="contained">{data}</Button>
+            <Button onClick={handleClickAnswer} variant="contained">{decode(data)}</Button>
           </Box>
         )
       })}
