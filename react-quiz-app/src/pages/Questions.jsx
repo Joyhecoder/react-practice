@@ -5,10 +5,14 @@ import useAxios from '../hooks/useAxios';
 import { useSelector } from 'react-redux'
 
 const Questions = () => {
-  const {
-    questions_category,  question_difficulty, question_type, amount_of_question
-  } = useSelector(state => state)
-  console.log(amount_of_question.amount_of_question, questions_category)
+  // const {
+  //   questions_category,  question_difficulty, question_type, amount_of_question
+  // } = useSelector((state) => state)
+  const amount_of_question = useSelector(state => state.amount_of_question)
+  const question_category = useSelector(state => state.question_category)
+  const question_difficulty = useSelector(state => state.question_difficulty)
+  const question_type = useSelector(state => state.question_type)
+  console.log(amount_of_question, question_category, question_difficulty, question_type)
   
   let apiUrl = `/api.php?amount=10`
   const { response, loading } = useAxios({ url: apiUrl })
