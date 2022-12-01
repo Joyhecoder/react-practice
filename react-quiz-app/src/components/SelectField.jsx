@@ -12,7 +12,7 @@ const SelectField = (props) => {
     const { label, options } = props
     const dispatch = useDispatch();
     const [value, setValue] = useState('')
-    console.log("selectField", options)
+    // console.log("selectField", options)
 
     const handleChange = (e) =>{
      setValue(e.target.value)
