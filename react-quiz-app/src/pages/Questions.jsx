@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Box } from '@mui/system';
 import { Button, Typography, CircularProgress  } from '@mui/material';
 import useAxios from '../hooks/useAxios';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { handleScoreChange } from '../redux/actions';
 
 
 
@@ -18,7 +19,8 @@ const Questions = () => {
   //   questions_category,  question_difficulty, question_type, amount_of_question
   // } = useSelector((state) => state)
   const navigate = useNavigate()
-  
+  const dispatch = useDispatch()
+
   const amount_of_question = useSelector(state => state.amount_of_question)
   const question_category = useSelector(state => state.question_category)
   const question_difficulty = useSelector(state => state.question_difficulty)
@@ -71,10 +73,20 @@ const Questions = () => {
     )
   }
  
-const handleClickAnswer = () =>{
+const handleClickAnswer = (e) =>{
+  //if answer correct, add 1 point
+  const question = response.results[questionIndex]
+  if(e.target.textContent === question.correct_answer){
+    dispatch(handleScoreChange(score+ 1))
+  }
+
+  //go to next question
   if(questionIndex + 1 < response.results.length){
     setQuestionIndex(questionIndex + 1)
-  }else{
+  }
+
+  //finished the last question, redirect to the score page
+  else{
       navigate('/score')
   }
 }
