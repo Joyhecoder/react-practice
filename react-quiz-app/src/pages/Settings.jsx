@@ -47,7 +47,8 @@ const Settings = () => {
   return (
     
     <div>
-      <h2>Quiz App</h2>
+      
+      <Typography variant="h2" fontWeight="bold">Quiz App</Typography>
       
 
       <form onSubmit={handleSubmit}>

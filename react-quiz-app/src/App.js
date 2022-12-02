@@ -14,7 +14,6 @@ const App = () => {
       <Box textAlign='center' mt={5} >
       <Routes>
         <Route path="/" element={ <Settings /> } >
-        
         </Route>
         <Route path="/questions" element={ <Questions />} />
         <Route path="/score" element={ <FinalScore />} />
